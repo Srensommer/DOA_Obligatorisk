@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Executable>C:\Users\bruger\Desktop\DOA_Obligatorisk\i3doa-trie\x64\Debug\TrieTest.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="TrieTestFindAllWithPrefix.FindAllWithPrefix_EmptyTrieEmptyPrefix_EmptyStringReturned" Duration="1" />
+    <TestDuration Test="TrieTestFindAllWithPrefix.FindAllWithPrefix_EmptyTrieNonEmptyPrefix_NoStringReturned" Duration="1" />
+    <TestDuration Test="TrieTestFindAllWithPrefix.FindAllWithPrefix_NoStringsWithPrefix_NoStringsReturned" Duration="1" />
+    <TestDuration Test="TrieTestFindAllWithPrefix.FindAllWithPrefix_OneStringsWithPrefix_OneStringReturned" Duration="1" />
+    <TestDuration Test="TrieTestFindAllWithPrefix.FindAllWithPrefix_OneStringsWithPrefix_CorrectStringReturned" Duration="0" />
+    <TestDuration Test="TrieTestFindAllWithPrefix.FindAllWithPrefix_ThreeStringsWithPrefix_ThreeStringReturned" Duration="1" />
+    <TestDuration Test="TrieTestFindAllWithPrefix.FindAllWithPrefix_ThreeStringsWithPrefix_CorrectStringsReturned" Duration="1" />
+    <TestDuration Test="TrieTestFindAllWithPrefix.FindAllWithPrefix_ManyStringsInsertedThreeStringsWithPrefix_CorrectStringsReturned" Duration="1" />
+    <TestDuration Test="TrieTestFindAllWithPrefix.FindAllWithPrefix_ManyStringsInsertedEmptyPrefix_AllStringsReturned" Duration="1" />
+    <TestDuration Test="TrieTestInsertSearch.Search_StringInsertedTwice_StringFound" Duration="1" />
+    <TestDuration Test="TrieTestInsertSearch.Search_VanillaTrie_EmptyStringFound" Duration="1" />
+    <TestDuration Test="TrieTestInsertSearch.Search_VanillaTrie_StringNotFound" Duration="1" />
+    <TestDuration Test="TrieTestInsertSearch.Search_StringInserted_StringFound" Duration="1" />
+    <TestDuration Test="TrieTestInsertSearch.Search_StringInserted_PrefixNotFound" Duration="1" />
+    <TestDuration Test="TrieTestInsertSearch.Search_PrefixStringInserted_StringFound" Duration="1" />
+    <TestDuration Test="TrieTestInsertSearch.Search_PrefixStringInserted_OriginalStringFound" Duration="1" />
+    <TestDuration Test="TrieTestRemove.Search_StringInsertedTwiceRemovedOnce_StringNotFound" Duration="1" />
+    <TestDuration Test="TrieTestRemove.Remove_OnlyWordInTrie_WordNotFound" Duration="1" />
+    <TestDuration Test="TrieTestRemove.Remove_OnlyWordInTrie_EmptyStringStillFound" Duration="1" />
+    <TestDuration Test="TrieTestRemove.Remove_WordReInserted_WordFound" Duration="1" />
+    <TestDuration Test="TrieTestRemove.Remove_NonPresentPrefixRemoved_WordStillFound" Duration="1" />
+    <TestDuration Test="TrieTestRemove.Remove_PrefixRemoved_CompleteWordStillFound" Duration="1" />
+    <TestDuration Test="TrieTestRemove.Remove_PrefixRemoved_PrefixNotFound" Duration="1" />
+    <TestDuration Test="TrieTestRemove.Remove_LongWordRemoved_PrefixStillFound" Duration="1" />
+    <TestDuration Test="TrieTestRemove.Remove_LongWordRemoved_LongWordFound" Duration="1" />
+    <TestDuration Test="TrieTestRemove.Remove_MoreWordsInTrieOneRemoved_OtherWordsFound" Duration="1" />
+  </TestDurations>
+</GtaTestDurations>
