@@ -21,9 +21,13 @@ int main()
     assert(t.search("john1") != nullptr);
     assert(t.search("john3") == nullptr);
 
+    //Remove from trie
     UserInfo* user1 = t.search("john1");
     t.remove("john1");
     delete user1;
-
     assert(t.search("john1") == nullptr);
+
+    //Find user2
+    UserInfo* user2 = t.search("john2");
+    assert(user2->getName() == "john2");
 }
