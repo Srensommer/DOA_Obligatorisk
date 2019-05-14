@@ -39,7 +39,7 @@ public:
 
 	~Trie()
 	{
-
+		delete root;
 	}
 
 
