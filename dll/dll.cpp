@@ -12,17 +12,6 @@ DLL::~DLL()
 
 }
 
-/*
-Node::Node()
-{
-	highscore = 0;
-    username = ' ';
-	next = nullptr;
-	prev = nullptr;
-}
-*/
-
-
 void DLL::push(UserInfo *node)
 {
     node->next = head;
@@ -35,6 +24,17 @@ void DLL::push(UserInfo *node)
     length++;
 }
 
+void DLL::insert_last(UserInfo *node)
+{
+    node->prev = tail;
+    node->next = nullptr;
+
+    if (tail != nullptr)
+        tail->next = node;
+
+    tail = node;
+    length++;
+}
 
 
 void DLL::insert_sort(UserInfo *node)
@@ -43,6 +43,11 @@ void DLL::insert_sort(UserInfo *node)
 
 
     UserInfo *compare = head;
+
+    if(node->getHighscore() > head->getHighscore())
+        push(node);
+
+    compare = compare->next;
 
     while(compare)
     {
@@ -57,7 +62,7 @@ void DLL::insert_sort(UserInfo *node)
 
     if(inserted == 0)
     {
-       // insert last 
+       insert_last(node);
     }
 }
 
@@ -80,10 +85,6 @@ void DLL::insert_before(UserInfo *node, UserInfo *compare)
         head = node;
 }
 
-void DLL::insert_last(UserInfo *node, UserInfo *compare)
-{
-
-}
 
 void DLL::print()
 {
@@ -126,7 +127,7 @@ void DLL::print_byName(std::string name)
 }
 
 
-
+/*
 void DLL::insertionSort()
 {
     int i, j;
@@ -148,5 +149,38 @@ void DLL::insertionSort()
     }
 
 }
+*/
 
 
+void DLL::remove_node(UserInfo *node)
+{
+    if(head == nullptr || node == nullptr)
+        return;
+
+    if(node == head)
+        head = node->next;
+
+    if(node->next != nullptr)
+        node->next->prev = node->prev;
+
+    if(node->prev != nullptr)
+        node->prev->next = node->next;
+ 
+    delete(node);
+}
+
+
+void DLL::update_score(UserInfo *node, int score, std::string password)
+{
+    if(node->getHighscore() > score) // Old score is greater
+        return;
+
+    if(node->validate(password) == false)
+        return;
+
+    UserInfo new_node(node->getName(), password);
+    new_node.setHighscore(score);
+
+    remove_node(node);
+    insert_sort(&new_node);
+}
