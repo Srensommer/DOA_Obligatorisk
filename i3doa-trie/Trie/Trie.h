@@ -74,6 +74,7 @@ public:
 				printf("ADD %c\n", str[i]);
 			}
 		}
+        cur->completesWord = true;
 	}
 
 	bool search(string str) const
