@@ -113,19 +113,23 @@ public:
 			if ((res = cur->children.find(str[i])) != cur->children.end()) {
 				cur = res->second;
 			}
-			if (cur->completesWord && i == str.length() - 1) {
-				cur->completesWord = 0;
-				while (cur->completesWord == 0) {
-					TrieNode *parent = cur->parent;
-					delete cur;
-					cur = parent;
-				}
-			}
 		}
+        cur->completesWord = false;
+
+        //Dealokates unused nodes.
+        while(cur->parent->children.size() == 1)
+        {
+            TrieNode* temp = cur;
+            cur = cur->parent;
+
+            //empties map with only one child
+            cur->children.clear();
+            delete temp;
+        }
 	}
 
 	void findAllWithPrefix(string prefix, vector<string>& strings) const
-	{
+    	{
 		// We don't need this.. But maybe smartz...
 		//Confirmed smartz.. we need this..  RIP Søren "Karl Kode" Sommer's implementation
 	}
