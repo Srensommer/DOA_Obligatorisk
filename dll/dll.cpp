@@ -12,6 +12,7 @@ DLL::~DLL()
 
 }
 
+/*
 Node::Node()
 {
 	highscore = 0;
@@ -19,37 +20,33 @@ Node::Node()
 	next = nullptr;
 	prev = nullptr;
 }
+*/
 
-void DLL::push(int data, std::string name)
+
+void DLL::push(UserInfo *node)
 {
-	Node *node = new Node();
-	node->highscore = data;
-    node->username = name;
-	
-	node->next = head;
-	node->prev = nullptr;
+    node->next = head;
+    node->prev = nullptr;
 
-	if (head != nullptr)
-		head->prev = node;
+    if (head != nullptr)
+        head->prev = node;
 
-	head = node;
-	length++;
+    head = node;
+    length++;
 }
 
 
-void DLL::insert_sort(int data, std::string name)
+
+void DLL::insert_sort(UserInfo *node)
 {
     int inserted = 0;
-    Node *node = new Node();
-    node->highscore = data;
-    node->username = name;
 
 
-    Node *compare = head;
+    UserInfo *compare = head;
 
     while(compare)
     {
-        if(node->highscore > compare->highscore)
+        if(node->getHighscore() > compare->getHighscore())
         {
             insert_before(node, compare);
             inserted = 1;
@@ -62,11 +59,10 @@ void DLL::insert_sort(int data, std::string name)
     {
        // insert last 
     }
-
-
 }
 
-void DLL::insert_before(Node *node, Node *compare)
+
+void DLL::insert_before(UserInfo *node, UserInfo *compare)
 {
     if(compare == nullptr)
     {
@@ -84,18 +80,18 @@ void DLL::insert_before(Node *node, Node *compare)
         head = node;
 }
 
-void DLL::insert_last(Node *node, Node *compare)
+void DLL::insert_last(UserInfo *node, UserInfo *compare)
 {
 
 }
 
 void DLL::print()
 {
-	Node *node = head;
+	UserInfo *node = head;
 
 	while (node)
 	{
-		std::cout << "Node " << node->username << ": " << node->highscore << std::endl;
+		std::cout << "Node " << node->getName() << ": " << node->getHighscore() << std::endl;
 		node = node->next;
 	}
 
@@ -103,7 +99,7 @@ void DLL::print()
 
 void DLL::print_head()
 {
-    std::cout << "Head: " << head->username << std::endl;
+    std::cout << "Head: " << head->getName() << " " << head->getHighscore() << std::endl;
 }
 
 
@@ -111,13 +107,13 @@ void DLL::print_byName(std::string name)
 {
     int found = 1;
 
-    Node *node = head;
+    UserInfo *node = head;
 
     while(node)
     {
-        if(node->username.compare(name) == 0)
+        if(node->getName().compare(name) == 0)
         {
-		    std::cout << "Node " << node->username << ": " << node->highscore << std::endl;
+		    std::cout << "Node " << node->getName() << ": " << node->getHighscore() << std::endl;
             found = 0;
         }
         node = node->next;
@@ -128,6 +124,8 @@ void DLL::print_byName(std::string name)
         std::cout << "Cannot find node" << std::endl;
     }
 }
+
+
 
 void DLL::insertionSort()
 {
