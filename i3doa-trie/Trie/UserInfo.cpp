@@ -10,19 +10,21 @@ std::string UserInfo::getName() const
     return name_;
 }
 
-
-std::string UserInfo::getPassword() const
+bool UserInfo::validate(std::string password) const
 {
-    return password_;
+    if(password_.compare(password) == 0)
+    {
+        return true;
+    }
+    return false;
 }
 
- 
 int UserInfo::getHighscore() const
 {
     return highscore_;
 }
 
-std::vector<GameInfo>::const_iterator UserInfo::getGames() const
+void UserInfo::setHighscore(int highscore)
 {
-    return games_.begin();
+    highscore_ = highscore;
 }
