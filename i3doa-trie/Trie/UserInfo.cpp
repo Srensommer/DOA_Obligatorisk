@@ -2,7 +2,7 @@
 
 
 UserInfo::UserInfo(std::string name, std::string password)
-:name_(name), password_(password){}
+:name_(name), password_(password), highscore_(0){}
 
 
 std::string UserInfo::getName() const

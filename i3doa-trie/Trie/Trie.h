@@ -114,7 +114,7 @@ public:
 				cur = res->second;
 			}
             else{
-                return
+                return;
             }
 		}
         cur->completesWord = false;
