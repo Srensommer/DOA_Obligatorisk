@@ -1,8 +1,7 @@
-﻿cl : Command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  pch.cpp
-cl : Command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+﻿  TrieTestFindAllWithPrefix.cpp
+  Generating Code...
+  Compiling...
   TrieTestRemove.cpp
   TrieTestInsertSearch.cpp
-  TrieTestFindAllWithPrefix.cpp
   Generating Code...
-  TrieTest.vcxproj -> C:\Users\bruger\Desktop\DOA_Obligatorisk\i3doa-trie\x64\Debug\TrieTest.exe
+  TrieTest.vcxproj -> C:\Users\Elias\Documents\DOA_Obligatorisk\i3doa-trie\x64\Debug\TrieTest.exe
