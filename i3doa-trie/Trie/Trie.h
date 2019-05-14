@@ -113,6 +113,9 @@ public:
 			if ((res = cur->children.find(str[i])) != cur->children.end()) {
 				cur = res->second;
 			}
+            else{
+                return
+            }
 		}
         cur->completesWord = false;
         cur->user = nullptr;
