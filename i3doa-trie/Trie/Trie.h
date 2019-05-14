@@ -76,7 +76,6 @@ public:
 				}
 				cur->children.insert(std::pair<char, TrieNode*>(str[i], n));
 				cur = n;
-				printf("ADD %c\n", str[i]);
 			}
             cur->user = user;
 		}
@@ -91,7 +90,6 @@ public:
 		for (int i = 0; i < str.length(); i++) {
 			if ((res = cur->children.find(str[i])) != cur->children.end()) {
 				cur = res->second;
-				cout << "Found" << str[i] << endl;
 			}
             else
             {
@@ -119,10 +117,8 @@ public:
 		}
         cur->completesWord = false;
         cur->user = nullptr;
-        std::cout << "found word to remove: " << cur->val <<  std::endl;
 
         //Dealokates unused nodes.
-        std::cout << "entries in parrent"  << cur->parent->children.size() << std::endl;
 
         while(cur->children.size() == 0 && !cur->completesWord)
         {
@@ -130,7 +126,6 @@ public:
 
             //empties map with only one child
             parent->children.erase(cur->val);
-            std::cout << "Removes " << cur->val << std::endl;
             delete cur;
             cur = parent;
             parent = cur->parent;
