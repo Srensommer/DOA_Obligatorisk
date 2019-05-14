@@ -41,7 +41,9 @@ void test()
 
     // Opdater score
     std::cout << "=== Update Highscore ===" << std::endl;
-    
+    dll.update_score(&user1,1,"password");
+    dll.update_score(&user2,460,"123");
+    dll.update_score(&user3,500,"goodboi");
 
 
     std::cout << "==================================" << std::endl; 

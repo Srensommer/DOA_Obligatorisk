@@ -26,6 +26,18 @@ void DLL::push(UserInfo *node)
 
 void DLL::insert_last(UserInfo *node)
 {
+
+    if (tail == nullptr)
+        head = tail = node;
+    else
+    {
+        tail->next = node;
+        node->prev = tail;
+        tail = node;
+    }
+
+    length++;
+    /*
     if(head == nullptr)
         head = node;
 
@@ -37,6 +49,7 @@ void DLL::insert_last(UserInfo *node)
     tail = node;
 
     length++;
+    */
 }
 
 
@@ -168,6 +181,7 @@ void DLL::remove_node(UserInfo *node)
 
     if(node->prev != nullptr)
         node->prev->next = node->next;
+    std::cout << "- KAKE" << std::endl;
  
     delete(node);
 }
@@ -176,14 +190,20 @@ void DLL::remove_node(UserInfo *node)
 void DLL::update_score(UserInfo *node, int score, std::string password)
 {
     if(node->getHighscore() > score) // Old score is greater
+    {
+        std::cout << "- Did not beat your old highscore" << std::endl; 
         return;
+    }
 
     if(node->validate(password) == false)
+    {
+        std::cout << "- Wrong password" << std::endl; 
         return;
+    }
 
     UserInfo new_node(node->getName(), password);
     new_node.setHighscore(score);
-
+     
     remove_node(node);
     insert_sort(&new_node);
 }
