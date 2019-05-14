@@ -97,6 +97,10 @@ public:
 				cur = res->second;
 				cout << "Found" << str[i] << endl;
 			}
+            else
+            {
+                return false;
+            }
 			if (cur->completesWord && i == str.length() - 1) return true;
 		}
 		return false;
@@ -115,17 +119,23 @@ public:
 			}
 		}
         cur->completesWord = false;
+        std::cout << "found word to remove: " << cur->val <<  std::endl;
 
         //Dealokates unused nodes.
-        while(cur->parent->children.size() == 1)
+        std::cout << "entries in parrent"  << cur->parent->children.size() << std::endl;
+
+        while(cur->children.size() == 0 && !cur->completesWord)
         {
-            TrieNode* temp = cur;
-            cur = cur->parent;
+            TrieNode* parent = cur->parent;
 
             //empties map with only one child
-            cur->children.clear();
-            delete temp;
+            parent->children.erase(cur->val);
+            std::cout << "Removes " << cur->val << std::endl;
+            delete cur;
+            cur = parent;
+            parent = cur->parent;
         }
+
 	}
 
 	void findAllWithPrefix(string prefix, vector<string>& strings) const
