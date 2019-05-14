@@ -43,20 +43,29 @@ public:
 	}
 
 
-	void insert(string str) const
+	void insert(string str)
 	{
 		TrieNode *cur = root;
 		TrieMapIter res;
-		for (int i = 0; i < str.length(); i++) {
+		
+		//Iterates trough each letter in the given string 
+		for (int i = 0; i < str.length(); i++) 
+		{
+			//If the letter exsists in children, set cursor to child
 			if ((res = cur->children.find(str[i])) != cur->children.end()) 
-			{cur = res->second;}
-			else {
+			{
+				cur = res->second;
+			}
+			else 
+			{
 				TrieNode *n;
-				if (i == str.length() - 1) {
+				if (i == str.length() - 1) 
+				{
 					n = new TrieNode(str[i], true);
 					n->parent = cur;
 				}
-				else {
+				else 
+				{
 					n = new TrieNode(str[i], false);
 					n->parent = cur;
 				}
