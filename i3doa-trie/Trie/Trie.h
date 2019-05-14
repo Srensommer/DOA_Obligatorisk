@@ -48,7 +48,7 @@ public:
 	}
 
 
-	void insert(string str)
+	void insert(string str, UserInfo* user)
 	{
 		TrieNode *cur = root;
 		TrieMapIter res;
@@ -78,22 +78,13 @@ public:
 				cur = n;
 				printf("ADD %c\n", str[i]);
 			}
+            cur->user = user;
 		}
         cur->completesWord = true;
 	}
 
-	bool search(string str) const
+	UserInfo* search(string str) const
 	{
-		//Denne implementation skulle være mega smartz i følge lab øvelsen, men jeg gav op på den..
-		/*TrieNode *current = root;
-		for (int i = 0; i < str.length(); i++)
-		{
-			findPrefixEnd(str, current);
-			return false;
-		}
-		*/
-
-
 		TrieNode *cur = root;
 		TrieMapIter res;
 
@@ -104,11 +95,11 @@ public:
 			}
             else
             {
-                return false;
+                return nullptr;
             }
-			if (cur->completesWord && i == str.length() - 1) return true;
+			if (cur->completesWord && i == str.length() - 1) return cur->user;
 		}
-		return false;
+		return nullptr;
 	}
 
 	//Denne metode har samme problem som search.. Den gør ikke brug af findPrefixEnd, og den skulle angiveligt være mega smarts.
