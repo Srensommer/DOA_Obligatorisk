@@ -4,6 +4,10 @@
 #include <string>
 #include <iostream>
 
+
+#include "UserInfo.cpp"
+
+
 using namespace std;
 
 class Trie
@@ -18,13 +22,14 @@ class Trie
 	{
 	public:
 		TrieNode(char c = '\0', bool cw = false, TrieNode* p = nullptr) :
-			val(c), parent(p), completesWord(cw)
+			val(c), parent(p), completesWord(cw), user(nullptr)
 		{
 			children.clear();
 		}
 		char val;
 		TrieNode* parent;
 		bool completesWord;
+        UserInfo* user;
 		TrieMap children;
 	};
 
