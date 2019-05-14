@@ -5,7 +5,7 @@
 #include <iostream>
 
 
-#include "UserInfo.cpp"
+#include "UserInfo.hpp"
 
 
 using namespace std;
@@ -115,6 +115,7 @@ public:
 			}
 		}
         cur->completesWord = false;
+        cur->user = nullptr;
         std::cout << "found word to remove: " << cur->val <<  std::endl;
 
         //Dealokates unused nodes.
