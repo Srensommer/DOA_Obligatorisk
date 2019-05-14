@@ -181,6 +181,7 @@ void DLL::remove_node(UserInfo *node)
 
     if(node->prev != nullptr)
         node->prev->next = node->next;
+
     std::cout << "- KAKE" << std::endl;
  
     delete(node);
