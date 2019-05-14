@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=-c -Wall
-OBJECTS = main.o dll.o UserInfo.o
+OBJECTS = main.o dll.o UserInfo.o test_dll.o
 EXE=a.out
 
 

@@ -26,21 +26,27 @@ void DLL::push(UserInfo *node)
 
 void DLL::insert_last(UserInfo *node)
 {
-    node->prev = tail;
-    node->next = nullptr;
+    if(head == nullptr)
+        head = node;
 
-    if (tail != nullptr)
+    if(tail != nullptr)
         tail->next = node;
 
+    node->next = nullptr;
+    node->prev = tail;
     tail = node;
+
     length++;
 }
 
 
 void DLL::insert_sort(UserInfo *node)
 {
-    int inserted = 0;
-
+    if(head == nullptr)
+    {
+        push(node);
+        return;
+    }
 
     UserInfo *compare = head;
 
@@ -54,16 +60,13 @@ void DLL::insert_sort(UserInfo *node)
         if(node->getHighscore() > compare->getHighscore())
         {
             insert_before(node, compare);
-            inserted = 1;
+            break;
         }
 
         compare = compare->next;
     }
 
-    if(inserted == 0)
-    {
-       insert_last(node);
-    }
+    insert_last(node);
 }
 
 
